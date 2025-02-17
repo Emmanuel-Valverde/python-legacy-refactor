@@ -28,12 +28,10 @@ def is_report_valid(increases, levels, is_report_increasing):
 			return False
 
 		is_between_bounds = 0 < abs(level_difference) < 4
-		if is_between_bounds:
-			t = True
-		else:
-			t = False
-			break
-	return t
+		if not is_between_bounds:
+			return False
+
+	return True
 
 
 if __name__ == "__main__":
