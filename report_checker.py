@@ -1,11 +1,7 @@
-from io import StringIO
-
-from report import Report
 from test_report_repository import ReportRepository
 
 
-# TODO: Remove StringIO dependency and encapsulate reding of the file on a repository
-def check_report(report_repository: ReportRepository = ReportRepository("input.txt")):
+def check_report(report_repository: ReportRepository):
 	count = 0
 	reports = report_repository.get_all()
 	for report in reports:
@@ -14,4 +10,4 @@ def check_report(report_repository: ReportRepository = ReportRepository("input.t
 	return count
 
 if __name__ == "__main__":
-	print(check_report())
+	print(check_report(ReportRepository("input.txt")))
