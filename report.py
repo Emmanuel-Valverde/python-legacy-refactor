@@ -22,3 +22,8 @@ class Report:
             return False
         if self.levels[0] < self.levels[1]:
             return True
+
+    def __eq__(self, other):
+        if isinstance(other, Report):
+            return self.levels == other.levels
+        return False
