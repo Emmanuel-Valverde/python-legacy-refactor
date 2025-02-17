@@ -1,19 +1,17 @@
 from io import StringIO
 
 from report import Report
+from test_report_repository import ReportRepository
+
 
 # TODO: Remove StringIO dependency and encapsulate reding of the file on a repository
-def check_report(reports_file: StringIO, report_repository=None):
+def check_report(report_repository: ReportRepository = ReportRepository("input.txt")):
 	count = 0
-	for report in reports_file:
-		levels = list(map(int, report.split()))
-
-		report = Report(levels)
-
+	reports = report_repository.get_all()
+	for report in reports:
 		if report.is_safe():
 			count += 1
 	return count
 
 if __name__ == "__main__":
-	with open("input.txt", "r") as file:
-		print(check_report(file))
+	print(check_report())

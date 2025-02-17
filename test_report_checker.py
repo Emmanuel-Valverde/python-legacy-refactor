@@ -14,5 +14,5 @@ class TestReportChecker:
 1 3 6 7 9""")
 
 
-        assert expected_secure_reports == check_report(report_file)
+        assert expected_secure_reports == check_report()
 
