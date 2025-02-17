@@ -30,3 +30,8 @@ class TestReport:
         report = Report([1, 3, 2, 4, 5])
 
         assert False == report.is_safe()
+
+    def test_given_an_increasing_report_when_levels_increase_over_five_levels_then_the_report_is_unsecure(self):
+        report = Report([1, 2, 7, 8, 9])
+
+        assert False == report.is_safe()
