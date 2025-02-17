@@ -22,8 +22,9 @@ def is_report_valid(increases, levels, is_report_increasing):
 	for indice in range(len(levels) - 1):
 		next_level = levels[indice + 1]
 		current_level = levels[indice]
+		level_difference = next_level - current_level
 
-		if 0 < (next_level - current_level) * increases < 4:
+		if 0 < level_difference * increases < 4:
 			t = True
 		else:
 			t = False
