@@ -9,11 +9,9 @@ class Report:
             current_level = self.levels[indice]
             level_difference = next_level - current_level
 
-            # TODO: Cover limit case of 1
             if self._is_increasing() and level_difference < 0:
                 return False
 
-            # TODO: Cover limit case of 3
             is_between_bounds = 0 < abs(level_difference) < 4
             if not is_between_bounds:
                 return False
@@ -31,10 +29,15 @@ class Report:
 # ✅ 9 7 6 2 1
 # ✅ 1 3 2 4 5
 # ✅ 8 6 4 4 1
-# 1 3 6 7 9
+# ✅ 1 3 6 7 9
 class TestReport:
     def test_given_a_report_when_levels_decrease_on_one_or_two_per_level_then_the_report_is_secure(self):
         report = Report([7, 6, 4, 2, 1])
+
+        assert True == report.is_safe()
+        
+    def test_given_a_report_when_levels_increase_between_the_boundaries_then_the_report_is_secure(self):
+        report = Report([1, 3, 6, 7, 9])
 
         assert True == report.is_safe()
 
