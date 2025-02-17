@@ -2,6 +2,8 @@ from report import Report
 
 
 class ReportRepository:
+    def __init__(self, report_file):
+        self.report_file = report_file
     def get_all(self):
         pass
 
