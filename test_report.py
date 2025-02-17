@@ -11,6 +11,10 @@ class Report:
 
             if self._is_increasing() and level_difference < 0:
                 return False
+
+            is_between_bounds = abs(level_difference) < 4
+            if not is_between_bounds:
+                return False
         return True
 
     def _is_increasing(self):
