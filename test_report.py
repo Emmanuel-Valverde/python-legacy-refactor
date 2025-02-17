@@ -9,9 +9,11 @@ class Report:
             current_level = self.levels[indice]
             level_difference = next_level - current_level
 
+            # TODO: Cover limit case of 1
             if self._is_increasing() and level_difference < 0:
                 return False
 
+            # TODO: Cover limit case of 3
             is_between_bounds = abs(level_difference) < 4
             if not is_between_bounds:
                 return False
