@@ -6,19 +6,17 @@ def check_report(reports_file: StringIO):
 		levels = list(map(int, report.split()))
 
 		if levels[0] > levels[1]:
-			increases = -1
 			is_report_increasing = False
 
 		if levels[0] < levels[1]:
-			increases = 1
 			is_report_increasing = True
 
-		if is_report_valid(increases, levels, is_report_increasing):
+		if is_report_valid(levels, is_report_increasing):
 			count += 1
 	return count
 
 
-def is_report_valid(increases, levels, is_report_increasing):
+def is_report_valid(levels, is_report_increasing):
 	for indice in range(len(levels) - 1):
 		next_level = levels[indice + 1]
 		current_level = levels[indice]
