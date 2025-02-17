@@ -1,9 +1,8 @@
-f = open("input.txt", "r")
+from io import StringIO
 
-
-def check_report():
+def check_report(reports_file: StringIO):
 	count = 0
-	for i in f:
+	for i in reports_file:
 		j = list(map(int, i.split()))
 
 		if j[0] > j[1]:
@@ -26,5 +25,6 @@ def check_report():
 
 
 
-
-print(check_report())
+if __name__ == "__main__":
+	with open("input.txt", "r") as file:
+		print(check_report(file))
