@@ -2,8 +2,8 @@ from io import StringIO
 
 from report import Report
 
-
-def check_report(reports_file: StringIO):
+# TODO: Remove StringIO dependency and encapsulate reding of the file on a repository
+def check_report(reports_file: StringIO, report_repository=None):
 	count = 0
 	for report in reports_file:
 		levels = list(map(int, report.split()))
