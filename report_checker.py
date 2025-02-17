@@ -7,25 +7,28 @@ def check_report(reports_file: StringIO):
 
 		if levels[0] > levels[1]:
 			increases = -1
+			is_report_increasing = False
 
 		if levels[0] < levels[1]:
 			increases = 1
+			is_report_increasing = True
 
-
-		for indice in range(len(levels) - 1):
-			next_level = levels[indice + 1]
-			current_level = levels[indice]
-
-			if 0 < (next_level - current_level) * increases < 4:
-				t = True
-			else:
-				t = False
-				break
-
-		if t:
+		if is_report_valid(increases, levels, is_report_increasing):
 			count += 1
 	return count
 
+
+def is_report_valid(increases, levels, is_report_increasing):
+	for indice in range(len(levels) - 1):
+		next_level = levels[indice + 1]
+		current_level = levels[indice]
+
+		if 0 < (next_level - current_level) * increases < 4:
+			t = True
+		else:
+			t = False
+			break
+	return t
 
 
 if __name__ == "__main__":
