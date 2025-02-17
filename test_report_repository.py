@@ -5,15 +5,14 @@ class ReportRepository:
     def __init__(self, report_file):
         self.report_file = report_file
 
-    def get_all(self):
-        return  [
-            Report([7, 6, 4, 2, 1]),
-            Report([1, 2, 7, 8, 9]),
-            Report([7, 6, 4, 2, 1]),
-            Report([1, 3, 2, 4, 5]),
-            Report([8, 6, 4, 4, 1]),
-            Report([1, 3, 6, 7, 9])
-        ]
+    def get_all(self) -> list[Report]:
+        with open(self.report_file, "r") as file:
+            reports = []
+            for report in file:
+                levels = list(map(int, report.split()))
+                reports.append(Report(levels))
+
+            return reports
 
 
 class TestReportRepository:
