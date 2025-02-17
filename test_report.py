@@ -14,7 +14,7 @@ class Report:
                 return False
 
             # TODO: Cover limit case of 3
-            is_between_bounds = abs(level_difference) < 4
+            is_between_bounds = 0 < abs(level_difference) < 4
             if not is_between_bounds:
                 return False
         return True
