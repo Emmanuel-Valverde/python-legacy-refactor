@@ -27,7 +27,7 @@ def is_report_valid(increases, levels, is_report_increasing):
 		if is_report_increasing and level_difference < 0:
 			return False
 
-		if 0 < level_difference * increases < 4:
+		if 0 < abs(level_difference) < 4:
 			t = True
 		else:
 			t = False
