@@ -2,18 +2,21 @@ from io import StringIO
 
 def check_report(reports_file: StringIO):
 	count = 0
-	for i in reports_file:
-		j = list(map(int, i.split()))
+	for report in reports_file:
+		levels = list(map(int, report.split()))
 
-		if j[0] > j[1]:
-			m = -1
-		elif j[0] < j[1]:
-			m = 1
-		else:
-			continue
+		if levels[0] > levels[1]:
+			increases = -1
 
-		for x in range(len(j) - 1):
-			if 0 < (j[x + 1] - j[x]) * m < 4:
+		if levels[0] < levels[1]:
+			increases = 1
+
+
+		for indice in range(len(levels) - 1):
+			next_level = levels[indice + 1]
+			current_level = levels[indice]
+
+			if 0 < (next_level - current_level) * increases < 4:
 				t = True
 			else:
 				t = False
