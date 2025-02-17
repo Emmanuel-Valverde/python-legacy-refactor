@@ -27,7 +27,7 @@ En el ejemplo anterior, los informes se pueden considerar seguros o inseguros ve
 * `7 6 4 2 1`: Es seguro porque los niveles disminuyen en 1 o 2.
 * `1 2 7 8 9`: Inseguro porque 2 7 es un aumento del 5.
 * `9 7 6 2 1`: Inseguro porque 6 2 es una disminución de 4.
-* `1 3 2 4 5`: Inseguro porque 1 3 está aumentando pero 3 2está disminuyendo.
+* `1 3 2 4 5`: Inseguro porque 1 3 está aumentando pero 3 2 está disminuyendo.
 * `8 6 4 4 1`: Inseguro porque 4 4 no es ni un aumento ni una disminución.
 * `1 3 6 7 9`: Es seguro porque los niveles aumentan de 1, 2 o 3.
 
