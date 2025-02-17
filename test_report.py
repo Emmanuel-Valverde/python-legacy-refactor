@@ -52,3 +52,8 @@ class TestReport:
         report = Report([9, 7, 6, 2, 1])
 
         assert False == report.is_safe()
+
+    def test_given_a_report_when_levels_do_not_decrease_or_increase_then_the_report_is_unsecure(self):
+        report = Report([8, 6, 4, 4, 1])
+
+        assert False == report.is_safe()
